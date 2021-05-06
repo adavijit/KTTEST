@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-
+import "./Answers.css";
 class Answers extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isAnswered: false,
-      classNames: ["", "", "", ""],
       clicked: null,
       option: null,
     };
@@ -31,7 +29,7 @@ class Answers extends Component {
     let ans = null;
     this.props.isAnswered.map((attempt) => {
       if (attempt.count === count) {
-        ans = attempt.count;
+        ans = attempt.ans;
         console.log(ans, "ANS");
       }
     });
@@ -42,19 +40,12 @@ class Answers extends Component {
     return ans;
   };
   checkAnswer(e) {
-    // let { isAnswered } = this.props;
-
-    // if (!isAnswered) {
-    //   this.props.showButton();
-    // }
-
     this.setState({
       ...this.state,
       clicked: e,
     });
 
     if (this.props.correct === e) {
-      console.log("COrrect");
       this.props.increaseScore();
     } else {
       this.props.decreaseScore();
@@ -64,7 +55,6 @@ class Answers extends Component {
 
   render() {
     let { answers } = this.props;
-    let { classNames } = this.state;
 
     return (
       <div id="answers">

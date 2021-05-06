@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import data from "./data";
-import Answers from "./Answers.jsx";
+import data from "../../assets/data";
+import Answers from "../../components/Answers/Answers.jsx";
 import "./ExamPage.css";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
@@ -109,7 +109,7 @@ class ExamPage extends Component {
   };
 
   render() {
-    let { count, total, question, answers, correct } = this.state;
+    const { count, total, question, answers, correct } = this.state;
 
     return (
       <div className="container">
