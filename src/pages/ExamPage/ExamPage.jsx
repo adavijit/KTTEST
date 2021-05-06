@@ -4,7 +4,7 @@ import Answers from "../../components/Answers/Answers.jsx";
 import "./ExamPage.css";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
-
+let score = 0;
 class ExamPage extends Component {
   constructor(props) {
     super(props);
@@ -74,14 +74,10 @@ class ExamPage extends Component {
   handleIncreaseScore() {
     console.log("COrrect score");
 
-    this.setState({
-      score: this.state.score + 1,
-    });
+    score = score + 1;
   }
   handleDecreaseScore() {
-    this.setState({
-      score: this.state.score - 1,
-    });
+    score = score - 1;
   }
   getScore = () => {
     this.setState({
@@ -110,6 +106,7 @@ class ExamPage extends Component {
 
   render() {
     const { count, total, question, answers, correct } = this.state;
+    console.log(this.state.score);
 
     return (
       <div className="container">
@@ -120,7 +117,7 @@ class ExamPage extends Component {
           closeOnOverlayClick={false}
           showCloseIcon={false}
         >
-          You have scored {this.state.score} / {total}
+          You have scored {score} / {total}
         </Modal>
 
         <div className="row">

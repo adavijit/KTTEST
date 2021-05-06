@@ -47,8 +47,6 @@ class Answers extends Component {
 
     if (this.props.correct === e) {
       this.props.increaseScore();
-    } else {
-      this.props.decreaseScore();
     }
     this.props.markAttempted(this.props.count, e);
   }
